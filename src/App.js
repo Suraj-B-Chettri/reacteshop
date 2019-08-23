@@ -3,7 +3,11 @@ import {NavLink} from 'react-router-dom'
 
 import Router from './Router';
 
-
+// var divStyle = {
+//   color: 'white',
+//   backgroundColor: '#cb9b8c',
+//  // 'ms' is the only lowercase vendor prefix
+// };
 
 const Navigation = (props) => <nav>
   <ul>
@@ -14,8 +18,8 @@ const Navigation = (props) => <nav>
 
 function App() {
   return (
-    <div className="App">
-      <h1>My Shooping Cart</h1>
+    <div  className="page-container">
+      <h1>My Shoping Cart</h1>
       <Navigation></Navigation>
       <Router>
         

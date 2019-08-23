@@ -1,7 +1,9 @@
 import React from 'react';
+import ProductListing from '../features/product-listing';
+import data from '../data/product.json';
 
 export default function HomePage(props) {
     return <div>
-        <h1>Home page</h1>
+       <ProductListing products = {data.ProductCollection} />
     </div>
 }
