@@ -1,11 +1,16 @@
 import React from 'react'
 import ProductListItem from './product-list-item';
+import { connect } from 'react-redux';
+import {cartItemsWithQuantity} from '../cart'
 
  function ProductListing(props) {
     return <div className="product-listing">
         {
             props.products.map(product =>
-                <ProductListItem key={product.ProductId} product = {product}/>)
+                <ProductListItem key={product.ProductId} 
+                                 product = {product}
+                                 addToCart = {props.addToCart}
+                                 cart = {cartItemsWithQuantity(props.cart)}/>)
         }
     </div>
 }
@@ -20,7 +25,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         addToCart: (item) =>{
-            dispatch({type:'Add', payload: item})
+            dispatch({type:'ADD', payload: item})
         },
         removeFromCart: (item) =>{
             dispatch({type:'REMOVE', payload: item})
@@ -28,3 +33,5 @@ function mapDispatchToProps(dispatch) {
 
     }
 }
+
+export default connect(mapStateToProps,mapDispatchToProps)(ProductListing)

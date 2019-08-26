@@ -1,6 +1,9 @@
 import React from 'react'
 // src={`/products/${props.products.productProductPicUrl}`}
 export default function ProductListItem(props) {
+    const thisItemInCart = props.cart.filter(item =>
+   
+        item.ProductId === props.product.ProductId )[0]
     return <div className="product-list-item">
         <h3>{props.product.Name}</h3>
         <img
@@ -12,7 +15,10 @@ export default function ProductListItem(props) {
         <div>Description: {props.product.Description}</div>
         <div>Price: ${props.product.Price}</div>
         <div>
-            <button>Add to Cart</button>
+            <button 
+            onClick={() => props.addToCart(props.product)}>Add to Cart ({
+                (thisItemInCart && thisItemInCart.quantity) || 0
+            })</button>
         </div>
     </div>
 }
