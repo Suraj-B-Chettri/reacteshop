@@ -1,24 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {NavLink} from 'react-router-dom'
+
+import Router from './Router';
+
+// var divStyle = {
+//   color: 'white',
+//   backgroundColor: '#cb9b8c',
+//  // 'ms' is the only lowercase vendor prefix
+// };
+
+const Navigation = (props) => <nav>
+  <ul>
+    <li><NavLink to='/'>Home</NavLink></li>
+    <li><NavLink to='/cart'>Cart</NavLink></li>
+  </ul>
+</nav>
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div  className="page-container">
+      <h1>My Shoping Cart</h1>
+      <Navigation></Navigation>
+      <Router>
+        
+      </Router>
+
     </div>
   );
 }
