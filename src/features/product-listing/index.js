@@ -10,7 +10,8 @@ import {cartItemsWithQuantity} from '../cart'
                 <ProductListItem key={product.ProductId} 
                                  product = {product}
                                  addToCart = {props.addToCart}
-                                 cart = {cartItemsWithQuantity(props.cart)}/>)
+                                 removeFromCart = {props.removeFromCart}
+                                 cartItem = {props.cart.filter(cartItem => cartItem.ProductId === product.ProductId)[0]}/>)
         }
     </div>
 }
