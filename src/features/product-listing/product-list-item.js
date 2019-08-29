@@ -19,7 +19,7 @@ export default function ProductListItem(props) {
         
         {
             props.cartItem
-            ? <RemoveButton product = {props.cartItem} removeFromCart ={props.removeFromCart} />
+            ? <RemoveButton cartItem = {props.cartItem} removeFromCart ={props.removeFromCart} />
             : null
         }
     </div>

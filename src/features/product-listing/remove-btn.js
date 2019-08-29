@@ -4,7 +4,7 @@ export default function RemoveButton(props) {
     return (
         <div>
         <button 
-            onClick={() => props.removeFromCart(props.product)} >Remove
+            onClick={() => props.removeFromCart(props.cartItem)} >Remove
         </button>
         </div>
     )
