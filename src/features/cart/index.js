@@ -3,8 +3,11 @@ import {connect } from 'react-redux'
 
 
 function sort(items) {
-    console.log(items)
-    return items.sort((a,b)=> a.ProductId <  b.ProductId )
+    return items.sort(function(a, b){
+        if(a.ProductId < b.ProductId) { return -1; }
+        if(a.ProductId > b.ProductId) { return 1; }
+        return 0;
+    })
 }
 
 function Cart(props) {
@@ -22,7 +25,7 @@ function Cart(props) {
                 {
                    sort(props.cart).map(item => <tr>
                         <td>{item.Name}</td>
-                        <td>{item.quantity}</td>
+                        <td>&nbsp; &nbsp;&nbsp; &nbsp;{item.quantity}</td>
                         <td>
                             <button onClick = {(e) => props.addToCart(item)} >+</button>
                             <button onClick = {(e) => props.removeToCart(item)} >-</button>
